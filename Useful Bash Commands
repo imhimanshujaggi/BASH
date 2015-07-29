@@ -12,7 +12,7 @@ Press: Ctrl+L
 ls*|head -5
 
 #Total no of rows in a file#
-Cat fileName.txt | wc -l
+cat fileName.txt | wc -l
 
 #Find all files with .csv extension in the current directory and merge into 1 big file#
 find . -maxdepth 1 -type f -name 'input_file*' -print0 | sort -z | xargs -0 cat -- >>output.txt
@@ -21,10 +21,10 @@ find . -maxdepth 1 -type f -name 'input_file*' -print0 | sort -z | xargs -0 cat 
 cat output.txt |sort -t "," -k2,2  -r | head -100
 
 #"Cut" command, using comma as delimeter. Useful for extracting a part of a file. Only col2 will be retrieved#
-Cut –d, -f2 output.txt   
+cut –d, -f2 output.txt   
 
 # Extracting 1-6 column of output.txt. Delimeter - comma#
-Cut –d, -f1-6 output.txt   
+cut –d, -f1-6 output.txt   
 
 # Extracting distinct values from col 2, output the output to macid.txt. The output file will have only one col with distinct mac ids. Similar to SQL distinct#
 cut -d, -f2 MergedORWData.csv | sort | uniq > macid.txt

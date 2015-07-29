@@ -33,7 +33,7 @@ cut -d, -f2 MergedORWData.csv | sort | uniq > macid.txt
 grep -F -f File 1, File 2
 
 # shuffle and extracting 1000 rows#
-shuf -n 1000 file
+shuf -n 1000 inputFile.txt >> outputFile.txt
 
 #sed: removing all commas from input file and outputting the file "output.csv"
 sed 's/"//g' input.csv > output.csv

@@ -1,0 +1,42 @@
+# Find all the files with .txt extension in the current directory#
+find . -type f -name "*.txt"
+
+# Deleting a file#
+rm “test.txt"
+
+#Clear Screen#
+type : Clear
+Press: Ctrl+L
+
+#View .txt file names#
+ls*|head -5
+
+#Total no of rows in a file#
+Cat fileName.txt | wc -l
+
+#Find all files with .csv extension in the current directory and merge into 1 big file#
+find . -maxdepth 1 -type f -name 'input_file*' -print0 | sort -z | xargs -0 cat -- >>output.txt
+
+#Group the 2 coloumn, and then sort the col 1 in descending order#
+cat output.txt |sort -t "," -k2,2  -r | head -100
+
+#"Cut" command, using comma as delimeter. Useful for extracting a part of a file. Only col2 will be retrieved#
+Cut –d, -f2 output.txt   
+
+# Extracting 1-6 column of output.txt. Delimeter - comma#
+Cut –d, -f1-6 output.txt   
+
+# Extracting distinct values from col 2, output the output to macid.txt. The output file will have only one col with distinct mac ids. Similar to SQL distinct#
+cut -d, -f2 MergedORWData.csv | sort | uniq > macid.txt
+
+# grep; outputting all the rows from file 2 having values in file 1. eg MACID File 1: "1234:23", File 2 has "N" repeated mac ids. Below command will output all the rows from file 2 having mac id 1234:23#
+grep -F -f File 1, File 2
+
+# shuffle and extracting 1000 rows#
+shuf -n 1000 file
+
+#sed: removing all commas from input file and outputting the file "output.csv"
+sed 's/"//g' input.csv > output.csv
+
+
+

@@ -29,8 +29,9 @@ cut –d',' -f1,2,3,4,5,6 output.txt
 # Extracting distinct values from col 2, output the output to macid.txt. The output file will have only one col with distinct mac ids. Similar to SQL distinct#
 cut -d, -f2 MergedORWData.csv | sort | uniq > macid.txt
 
-# grep; outputting all the rows from file 2 having values in file 1. eg MACID File 1: "1234:23", File 2 has "N" repeated mac ids. Below command will output all the rows from file 2 having mac id 1234:23#
-grep -F -f File 1, File 2
+# grep; outputting all the rows from file 2 having values in file 1. eg MACID File 1: "1234:23", File 2 has "N" repeated mac ids.
+#Below command will output all the rows from file 2 having mac id 1234:23#
+grep -F -f File 1 File 2 >>Output.csv
 
 # shuffle and extracting 1000 rows#
 shuf -n 1000 inputFile.txt >> outputFile.txt
